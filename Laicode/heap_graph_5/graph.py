@@ -4,7 +4,7 @@ class AjacencyList:
     
 
 
-def BFS1(node, neighbors):
+def BFS1(node, n):
     
     
     

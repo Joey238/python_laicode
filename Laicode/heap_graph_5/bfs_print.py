@@ -1,3 +1,4 @@
+from collections import deque
 
 class TreeNode:
     def __init__(self, value):
@@ -27,12 +28,12 @@ def bfs_print_layer(root):
     if root == None:
         return
     
-    queue = [] # FIFO
-    queue.append(root)
+    queue = deque() # FIFO
+    queue.append(root) # start node
     while queue:
         current_layer_size = len(queue)
         for i in range(current_layer_size): 
-            node = queue.pop(0)
+            node = queue.popleft()
             if node.leftNode:
                 queue.append(node.leftNode)
             if node.rightNode:
@@ -66,7 +67,7 @@ def is_complete_tree(root):
             queue.append(current.rightNode)
     return True
 
-def barpartite(root):
+# def barpartite(root):
     
 
 if __name__ == "__main__":
@@ -88,6 +89,6 @@ if __name__ == "__main__":
     node5.leftNode = node9
     node5.rightNode = node11
     
-    # bfs_print_layer(node1)
-    result = is_complete_tree(node1)
-    print(result)
+    bfs_print_layer(node1)
+    # result = is_complete_tree(node1)
+    # print(result)
